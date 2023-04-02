@@ -1,2 +1,2 @@
-# C-Data-Structure-
+# C.Data-Structure-
 Projetos em Linguagem de Programação C 
