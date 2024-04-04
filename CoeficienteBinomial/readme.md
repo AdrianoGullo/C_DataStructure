@@ -9,21 +9,18 @@ O método analítico para calcular os coeficientes binomiais é baseado na fórm
 
 ![Fórmula](./Imagens/coefBinomial.png)
 
+### Casos especiais:
 
-
-## Relação de Stifel:
-
-![Fórmula Stifel](./Imagens/stifel.png)
-
-
-
-## Binômios particulares:
+#### Binômios particulares:
 
 ![Fórmula Stifel](./Imagens/particulares.png)
 
+#### Binomiais Complementares:
+
+![Fórmula Stifel](./Imagens/complementares.png)
 
 
-## Binomiais Complementares:
+## Relação de Stifel:
 
 ![Fórmula Stifel](./Imagens/stifel.png)
 
