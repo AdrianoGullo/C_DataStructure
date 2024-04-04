@@ -7,24 +7,24 @@ Um simples código em C que calcula os coeficientes binomiais usando dois métod
 
 O método analítico para calcular os coeficientes binomiais é baseado na fórmula matemática:
 
-<img src="./Imagens/coefBinomial.png" alt="Formula analitica" width="7%"/>
+<img src="./Imagens/coefBinomial.png" alt="Formula analitica" width="15%"/>
 
 ### Casos especiais:
 
 #### Binômios particulares:
 
-<img src="./Imagens/particulares.png" alt="Exemplos particulares" width="5%"/>
+<img src="./Imagens/particulares.png" alt="Exemplos particulares" width="15%"/>
 
 #### Binomiais Complementares:
 
-<img src="./Imagens/complementares.png" alt="Exemplos complementares" width="7%"/>
+<img src="./Imagens/complementares.png" alt="Exemplos complementares" width="15%"/>
 
 
 ## Relação de Stifel:
 
-<img src="./Imagens/stifel.png" alt="Relacao de Stifel" width="4%"/>
+<img src="./Imagens/stifel.png" alt="Relacao de Stifel" width="15%"/>
 
 
 ## Binômio de Newton:
 
-<img src="./Imagens/newton.png" alt="Binomio de Newton" width="7%"/>
+<img src="./Imagens/newton.png" alt="Binomio de Newton" width="15%"/>
