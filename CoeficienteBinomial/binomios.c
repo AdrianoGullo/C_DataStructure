@@ -24,8 +24,7 @@ long long int analitica(long long int n1, long long int n2){
 }
 
 int main(){
-	long long int numero1, numero2;
-	long long int metodo1, denominador, metodo2;
+	long long int numero1, numero2, metodo1, denominador, metodo2;
 
 	scanf("%lld %lld", &numero1, &numero2);
 	
