@@ -9,12 +9,25 @@ O método analítico para calcular os coeficientes binomiais é baseado na fórm
 
 ![Fórmula](./Imagens/coefBinomial.png)
 
-Este método calcula os fatoriais dos números envolvidos e, em seguida, usa a fórmula para determinar o coeficiente binomial.
+
 
 ## Relação de Stifel:
 
-O método de Stifel é um método recursivo para calcular os coeficientes binomiais. Ele é baseado na seguinte relação recursiva:
+![Fórmula Stifel](./Imagens/stifel.png)
+
+
+
+## Binômios particulares:
+
+![Fórmula Stifel](./Imagens/particulares.png)
+
+
+
+## Binomiais Complementares:
 
 ![Fórmula Stifel](./Imagens/stifel.png)
 
-Este método utiliza recursão para calcular os coeficientes binomiais de acordo com a relação acima.
+
+## Binômio de Newton:
+
+![Fórmula Stifel](./Imagens/newton.png)
