@@ -1,9 +1,9 @@
 # Calculo de Coeficientes Binomiais
 
-Um simples código em C que calcula os coeficientes binomiais usando dois métodos diferentes: um método analítico e outro pela relação de Stifel. O programa permite que o usuário insira dois números inteiros positivos menores ou iguais a 20 e calcula os coeficientes binomiais correspondentes.
+Um simples código em C que calcula os coeficientes binomiais usando dois métodos diferentes: cálculo pelo método analítico e pela relação de Stifel. Ao inserir dois valores inteiros positivos menores ou iguais a 100, os coeficientes binomiais correspondentes são calculados.
 
 
-## Método Analítico:
+##  Método Analítico:
 
 O método analítico para calcular os coeficientes binomiais é baseado na fórmula matemática:
 
@@ -11,20 +11,10 @@ O método analítico para calcular os coeficientes binomiais é baseado na fórm
 
 ### Casos especiais:
 
-#### Binômios particulares:
+####      Binômios particulares:
 
-<img src="./Imagens/particulares.png" alt="Exemplos particulares" width="15%"/>
-
-#### Binomiais Complementares:
-
-<img src="./Imagens/complementares.png" alt="Exemplos complementares" width="15%"/>
-
+<img src="./Imagens/particulares.png" alt="Exemplos particulares" width="17%"/>
 
 ## Relação de Stifel:
 
 <img src="./Imagens/stifel.png" alt="Relacao de Stifel" width="15%"/>
-
-
-## Binômio de Newton:
-
-<img src="./Imagens/newton.png" alt="Binomio de Newton" width="15%"/>
