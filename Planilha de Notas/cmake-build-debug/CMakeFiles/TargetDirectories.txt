@@ -1,0 +1,3 @@
+C:/Users/didig/Coding/C/C_DataStructure/Planilha de Notas/cmake-build-debug/CMakeFiles/Planilha_de_Notas.dir
+C:/Users/didig/Coding/C/C_DataStructure/Planilha de Notas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/didig/Coding/C/C_DataStructure/Planilha de Notas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
