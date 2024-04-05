@@ -1,0 +1,6 @@
+# ninja log v5
+1	235	7340365615688895	build.ninja	99ad29a73605c7eb
+10	133	7340365015652539	CMakeFiles/Tabuleiro_de_Xadrez.dir/posicaoCavalo.c.obj	80039ba0f39c4e3f
+0	148	7340365015807792	CMakeFiles/Tabuleiro_de_Xadrez.dir/cavalosEmGuerra.c.obj	16d66f37838027df
+2	225	7340365615688895	build.ninja	99ad29a73605c7eb
+2	119	7340365617947507	Tabuleiro_de_Xadrez.exe	ea40de646ec5986d

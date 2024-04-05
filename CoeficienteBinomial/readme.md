@@ -1,6 +1,6 @@
 # Calculo de Coeficientes Binomiais
 
-Um simples código em C que calcula os coeficientes binomiais usando dois métodos diferentes: cálculo pelo método analítico e pela relação de Stifel. Ao inserir dois valores inteiros positivos menores ou iguais a 100, os coeficientes binomiais correspondentes são calculados.
+Um simples código em C que calcula os coeficientes binomiais usando dois métodos diferentes: cálculo pelo método analítico e pela relação de Stifel. Ao inserir dois valores inteiros positivos menores ou iguais a 20, os coeficientes binomiais correspondentes são calculados.
 
 
 ##  Método Analítico:

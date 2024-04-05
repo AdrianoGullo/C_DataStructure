@@ -1,0 +1,3 @@
+C:/Users/didig/Coding/C/C_DataStructure/MDC/cmake-build-debug/CMakeFiles/MDC.dir
+C:/Users/didig/Coding/C/C_DataStructure/MDC/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/didig/Coding/C/C_DataStructure/MDC/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+C:/Users/didig/Coding/C/C_DataStructure/Campo Minado/cmake-build-debug/CMakeFiles/Campo_Minado.dir
+C:/Users/didig/Coding/C/C_DataStructure/Campo Minado/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/didig/Coding/C/C_DataStructure/Campo Minado/cmake-build-debug/CMakeFiles/rebuild_cache.dir

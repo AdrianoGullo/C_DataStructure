@@ -30,11 +30,11 @@ int main(){
 	
 	if (numero1 < 0 || numero2 < 0) return printf("ERRO: Os numeros devem ser positivos");
 	else if (numero2 > numero1) return printf("ERRO: Número 1 deve ser maior que o número 2");
-	else if (numero1 > 100 || numero2 > 100) return printf("ERRO: Os numeros devem ser menores que 100");
+	else if (numero1 > 20 || numero2 > 20) return printf("ERRO: Os numeros devem ser menores que 100");
 	else if (numero1 == numero2) return printf("Binômio particular: Quando n1 = n2 o resultado é sempre 1. ");
 	else if (numero2 == 0) return printf("Binômio particular: Quando n2 = 0 o resultado é sempre 1. ");
 	else if (numero2 == 1) return printf("Binômio particular: Quando n2 = 1 o resultado é sempre n1, no caso, %lld", numero1);
-	else if (numero1 <= 100 && numero2 <= 100){	
+	else if (numero1 <= 20 && numero2 <= 20){
 		metodo1 = analitica(numero1,numero2);
 		metodo2 = stifel(numero1,numero2);
 		printf("%lld \n", metodo1);

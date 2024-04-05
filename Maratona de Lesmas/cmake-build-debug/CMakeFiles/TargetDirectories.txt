@@ -1,0 +1,3 @@
+C:/Users/didig/Coding/C/C_DataStructure/Maratona de Lesmas/cmake-build-debug/CMakeFiles/Maratona_de_Lesmas.dir
+C:/Users/didig/Coding/C/C_DataStructure/Maratona de Lesmas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/didig/Coding/C/C_DataStructure/Maratona de Lesmas/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+C:/Users/didig/Coding/C/C_DataStructure/Tabuleiro de Xadrez/cmake-build-debug/CMakeFiles/Tabuleiro_de_Xadrez.dir
+C:/Users/didig/Coding/C/C_DataStructure/Tabuleiro de Xadrez/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/didig/Coding/C/C_DataStructure/Tabuleiro de Xadrez/cmake-build-debug/CMakeFiles/rebuild_cache.dir

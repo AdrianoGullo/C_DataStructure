@@ -46,12 +46,10 @@ void mdcLista(int a, int b) {
 		else if (divisoresA[i1] < divisoresB[i2]) i1++;
 		ops++;
 	}
-    
     printf("MDC utilizando listagem de fatores: \nmdc = %d \nNum. operacoes: %d\n", mdc, ops);
-    return;
 }
 
-int mdcEuclidesAux(int a, int b, int * apontaOps) {
+int mdcEuclidesAux(int a, int b, int *apontaOps) {
 	(*apontaOps)+=1;
 	if (a > b){
 		a = a - b;
@@ -66,17 +64,18 @@ int mdcEuclidesAux(int a, int b, int * apontaOps) {
 	else if (a == b){
 		return a;
 	}
+    return 0;
 }
 
 void mdcEuclides(int a, int b) {
-    int ops = 0, mdc = 0;
+    int ops = 0, mdc;
     mdc = mdcEuclidesAux(a,b,&ops);
     printf("MDC utilizando o algoritmo de Euclides: \nmdc = %d \nNum. operacoes: %d\n", mdc, ops);
 }
 
 
 void mdcBinario(int a, int b) {
-    int ops = 0, mdc = 0;
+    int ops = 0, mdc;
     int aDiv, bDiv, d;
     
     aDiv = a%2;
@@ -115,12 +114,11 @@ void mdcBinario(int a, int b) {
 	d += 2;
 	
     printf("MDC utilizando o algoritmo binario: \nmdc = %d \nNum. operacoes: %d\n", mdc, ops);
-    return;
 }   
 
 bool validaEntrada(int a, int b) {
        if (a < 0 || b < 0) return false;
-	   else if (a > 500 || b > 500) return false;
+       if (a > 500 || b > 500) return false;
        return true; 
 }
 
