@@ -27,94 +27,79 @@ int exponen(int x, int y) {
     return exp;
 }
 
-void mdcLista(int a, int b) { 
-    int ops =0, mdc = 1, i1 = 0, i2 = 0;
+int mdcLista(int a, int b) {
+    int mdc = 1, i1 = 0, i2 = 0;
     int divisoresA[95], divisoresB[95];
     int numDivA, numDivB;
 
-    numDivA = listaDivisores(a, divisoresA, &ops);
-    numDivB = listaDivisores(b, divisoresB, &ops);
-    
+    numDivA = listaDivisores(a, divisoresA);
+    numDivB = listaDivisores(b, divisoresB);
+
     while (i1 < numDivA  && i2 < numDivB){
-		if (divisoresA[i1] == divisoresB[i2]){
-			mdc = mdc*divisoresA[i2];
-			ops++;
-			i1++;
-			i2++;
-		}
-		else if (divisoresA[i1] > divisoresB[i2]) i2++;
-		else if (divisoresA[i1] < divisoresB[i2]) i1++;
-		ops++;
-	}
-    printf("MDC utilizando listagem de fatores: \nmdc = %d \nNum. operacoes: %d\n", mdc, ops);
+        if (divisoresA[i1] == divisoresB[i2]){
+            mdc *= divisoresA[i2];
+            i1++;
+            i2++;
+        }
+        else if (divisoresA[i1] > divisoresB[i2]) i2++;
+        else if (divisoresA[i1] < divisoresB[i2]) i1++;
+    }
+    printf("MDC utilizando listagem de fatores: \nmdc = %d\n", mdc);
+    return mdc;
 }
 
-int mdcEuclidesAux(int a, int b, int *apontaOps) {
-	(*apontaOps)+=1;
-	if (a > b){
-		a = a - b;
-		(*apontaOps)+=1;	
-		return mdcEuclidesAux( a, b, apontaOps);
-	}
-	else if (a < b){
-		b = b - a;
-		(*apontaOps)+=1;
-		return mdcEuclidesAux(a, b, apontaOps);
-	}
-	else if (a == b){
-		return a;
-	}
-    return 0;
+
+int mdcEuclidesAux(int a, int b) {
+    if (a > b) {
+        a = a - b;
+        return mdcEuclidesAux(a, b);
+    } else if (a < b) {
+        b = b - a;
+        return mdcEuclidesAux(a, b);
+    } else {
+        return a;
+    }
 }
 
 void mdcEuclides(int a, int b) {
-    int ops = 0, mdc;
-    mdc = mdcEuclidesAux(a,b,&ops);
-    printf("MDC utilizando o algoritmo de Euclides: \nmdc = %d \nNum. operacoes: %d\n", mdc, ops);
+    int mdc = mdcEuclidesAux(a, b);
+    printf("MDC utilizando o algoritmo de Euclides: \nmdc = %d\n", mdc);
 }
-
 
 void mdcBinario(int a, int b) {
     int ops = 0, mdc;
     int aDiv, bDiv, d;
-    
-    aDiv = a%2;
-    bDiv = b%2;
+
+    aDiv = a % 2;
+    bDiv = b % 2;
     d = 0;
-    
-    while (aDiv == 0 && bDiv == 0){
-		a = a/2;
-    	b = b/2;	
-    	d += 1;
-    	aDiv = a%2;
-    	bDiv = b%2;
-	}
-	while (a != b){
-		d += 2;
-		if (aDiv == 0){
-			a=a/2;
-			aDiv = a%2;
-			d +=1;
-		}
-		else if (bDiv == 0){
-			d += 2;
-			b=b/2;
-			bDiv = b%2;
-		}
-		else if (a > b){
-			a = (a-b)/2;
-			d += 2;
-		}
-		else {
-			b = (b-a)/2;
-			d += 2;
-		}
-	}
-	mdc = exponen(2, d)*a;
-	d += 2;
-	
+
+    while (aDiv == 0 && bDiv == 0) {
+        a = a / 2;
+        b = b / 2;
+        d++;
+        aDiv = a % 2;
+        bDiv = b % 2;
+    }
+    while (a != b) {
+        d++;
+        if (aDiv == 0) {
+            a = a / 2;
+            aDiv = a % 2;
+        } else if (bDiv == 0) {
+            b = b / 2;
+            bDiv = b % 2;
+        } else if (a > b) {
+            a = (a - b) / 2;
+        } else {
+            b = (b - a) / 2;
+        }
+    }
+    mdc = a * exponen(2, d);
+    ops = d;
+
     printf("MDC utilizando o algoritmo binario: \nmdc = %d \nNum. operacoes: %d\n", mdc, ops);
-}   
+}
 
 bool validaEntrada(int a, int b) {
        if (a < 0 || b < 0) return false;

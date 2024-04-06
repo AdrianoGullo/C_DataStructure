@@ -30,8 +30,8 @@ void ImprimirFilas(int** Filas, int Linha, int Coluna) {
 }
 
 void PassaClientesVetor(int** FilaBanco, int* FilaOrdenada, int Linha, int contFila){
-    for (int i = 0; i<Linha; i++){
-        for(int j = 0; j<100; j++){
+    for (int i = 0; i < Linha; i++){
+        for(int j = 0; j < 100; j++){
             if(FilaBanco[i][j] != 0){
                 FilaOrdenada[contFila] = FilaBanco[i][j];
                 contFila++;
@@ -41,8 +41,8 @@ void PassaClientesVetor(int** FilaBanco, int* FilaOrdenada, int Linha, int contF
 }
 
 int Intercala(int* FilaOrdenada, int Valor1, int r, int Valor2) {
-    int* Auxiliar = malloc((Valor2-Valor1+1)*sizeof(int));
-    int i = Valor1, j = r+1, k = 0;
+    int* Auxiliar = malloc((Valor2 - Valor1 + 1) * sizeof(int));
+    int i = Valor1, j = r + 1, k = 0;
 
     while (i <= r && j <= Valor2) {
         if (FilaOrdenada[i] <= FilaOrdenada[j]) {
@@ -83,36 +83,35 @@ void ImprimirFilaOrdenada(int* FilaOrdenada, int contClientes){
 //Ordenação por MergeSort
 void OrdenaFila(int* FilaOrdenada, int Valor1, int Valor2){
     int r;
-    if(Valor1<Valor2){
-        r = (Valor1+Valor2)/2;
+    if(Valor1 < Valor2){
+        r = (Valor1 + Valor2) / 2;
         OrdenaFila(FilaOrdenada, Valor1, r);
-        OrdenaFila(FilaOrdenada, r+1, Valor2);
+        OrdenaFila(FilaOrdenada, r + 1, Valor2);
         Intercala(FilaOrdenada, Valor1, r, Valor2);
     }
 }
 
 int main() {
-    int Linhas = 0, contClientes=0, contFilas=0, ClientesNaFila = 0;
+    int Linhas = 0, contClientes = 0, contFilas = 0, ClientesNaFila = 0;
     scanf("%d", &Linhas);
     int** FilaBanco = NULL;
     int* FilaOrdenada = NULL;
-    if(Linhas == 0) return 0;
+    if (Linhas == 0) return 0;
 
     FilaBanco = CriarFilas(Linhas, 100);
-    for(int i = 0; i<Linhas; i++){
+    for (int i = 0; i < Linhas; i++){
         scanf("%d", &ClientesNaFila);
         contClientes += ClientesNaFila;
-        for(int j = 0; j<ClientesNaFila-1; j++){
-            scanf(" %d", &FilaBanco[i][j]);
+        for (int j = 0; j < ClientesNaFila; j++){
+            scanf("%d", &FilaBanco[i][j]);
         }
-        scanf(" %d", &FilaBanco[i][ClientesNaFila-1]);
     }
 
-    FilaOrdenada = malloc((contClientes+2)*sizeof(int));
+    FilaOrdenada = malloc((contClientes + 2) * sizeof(int));
     PassaClientesVetor(FilaBanco, FilaOrdenada, Linhas, contFilas);
     ImprimirFilaOrdenada(FilaOrdenada, contClientes);
 
-    OrdenaFila(FilaOrdenada, FilaOrdenada[0], FilaOrdenada[contClientes-1]);
+    OrdenaFila(FilaOrdenada, 0, contClientes - 1);
     ImprimirFilaOrdenada(FilaOrdenada, contClientes);
 
     LimparFilas(FilaBanco, Linhas);

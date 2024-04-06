@@ -72,18 +72,11 @@ void imprime(struct Aluno *pa, int n){
     int j;
     for (j = 0; j < n; j++){
         printf("%d ", pa[j].ra);
-        if (pa[j].data->dia > 9){
-            printf("%d ", pa[j].data->dia);
-        }
-        else{
-            printf("0%d ", pa[j].data->dia);
-        }
-        if (pa[j].data->mes > 9){
-            printf("%d ", pa[j].data->mes);
-        }
-        else{
-            printf("0%d ", pa[j].data->mes);
-        }
+        if (pa[j].data->dia > 9) printf("%d ", pa[j].data->dia);
+        else printf("0%d ", pa[j].data->dia);
+        if (pa[j].data->mes > 9) printf("%d ", pa[j].data->mes);
+        else printf("0%d ", pa[j].data->mes);
+
         printf("%d", pa[j].data->ano);
         printf("%s", pa[j].nome);
     }

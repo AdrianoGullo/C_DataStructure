@@ -3,5 +3,5 @@ project(Planilha_de_Notas C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Planilha_de_Notas
+add_executable(Organizando_Alunos
         notasAlunos.c)

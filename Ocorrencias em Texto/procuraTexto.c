@@ -1,134 +1,81 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-int contar(char vetor[]){
-    int contador = 0;
-    int i;
-    for (i = 0; i < 501; i++){
-        if (vetor[i] != '\0'){
-            contador++;
-        }
-        else{
-            i = 501;
-        }
-    }
-    return contador;
-}
+void calcularArrayLPS(char *padrao, int tamanhoPadrao, int *arrayLPS) {
+    int comprimentoPrefixoAtual = 0;
+    arrayLPS[0] = 0;
 
-void imprimir(char vetor[], int i, int j, int c){
-    int k;
-
-    if (c < 10) printf("00%d ", c);
-    else if(c > 99) printf("%d ", c);
-    else printf("0%d ", c);
-
-    if (i+1 < 10) printf("00%d ", i+1);
-    else if(i+1 > 99) printf("%d ", i+1);
-    else printf("0%d ", i+1);
-
-    if (j < 10) printf("00%d ", j);
-    else if(j > 99) printf("%d ", j);
-    else printf("0%d ", j);
-
-    for (k=i; k<j; k++){
-        printf("%c", vetor[k]);
-    }
-    printf("\n");
-}
-
-int verifica(char frase[], char procura[]){
-    int tam = contar(frase);
-    int tam1= contar(procura);
-    int i, j, k, i2, coc = 0, i2 = 0;
-
-    if (procura[0] == ' '){
-        while (i2 != 500){
-            int cpos = i;
-            int termino = cpos+1;
-            coc++;
-            i2++;
-            imprimir(frase, cpos, termino, coc);
-            i++;
-            if (i2 == 500){
-                break;
-            }
-        }
-    }else{
-        for (i = 0; i < tam; i++){
-            int cpos = 0;
-            int erros = 0;
-            for (j = 0; j < 2; j++){
-                if (frase[i] == procura[0]){
-                    cpos = i;
-                    int termino = cpos + tam1 - 1;
-
-                    for (k=1; k<tam1-1; k++){
-                        int j2 = j + k;
-                        int i2 = i + k;
-                        if (frase[i2] != procura[j2]){
-                            erros++;
-                            if (erros == 2){
-                                i++;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (erros < 2){									//analise caso - de 2 erros
-                        i = i + k - 1;
-                        coc++;
-                        imprimir(frase, cpos, termino, coc);
-                    }
-                    erros = 0;
-
-                    if (frase[i] == procura[0]){
-                        i--;
-                    }
-
-                    break;
-                } else if (frase[i] == procura[1]){					//analise primeira letra errada e segunda certa;
-                    cpos = i;
-                    int termino = cpos + tam1 - 1;
-
-                    if (frase[i-1] != procura[0]){
-                        cpos = i-1;
-                        termino = termino - 1;
-                        i--;
-                        erros++;
-                    }
-                    for (k=1; k<tam1-1; k++){
-                        int j2 = j + k;
-                        int i2 = i + k;
-                        if (frase[i2] != procura[j2]){
-                            erros++;
-                            if (erros == 2){
-                                i++;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (erros < 2){									//analise caso - de 2 erros
-                        i = i + k - 1;
-                        coc++;
-                        imprimir(frase, cpos, termino, coc);
-                    }
-                    erros = 0;
-                }
+    int indice = 1;
+    while (indice < tamanhoPadrao) {
+        if (padrao[indice] == padrao[comprimentoPrefixoAtual]) {
+            comprimentoPrefixoAtual++;
+            arrayLPS[indice] = comprimentoPrefixoAtual;
+            indice++;
+        } else {
+            if (comprimentoPrefixoAtual != 0) {
+                comprimentoPrefixoAtual = arrayLPS[comprimentoPrefixoAtual - 1];
+            } else {
+                arrayLPS[indice] = 0;
+                indice++;
             }
         }
     }
-    return coc;
 }
 
-int main(void){
+int buscaPadraoKMP(char* texto, char* padrao) {
+    int tamanhoPadrao = strlen(padrao);
+    int tamanhoTexto = strlen(texto);
+
+    int* arrayLPS = (int*)malloc(sizeof(int) * tamanhoPadrao);
+    if (arrayLPS == NULL) {
+        fprintf(stderr, "Erro ao alocar memória\n");
+        exit(1);
+    }
+
+    int indicePadrao = 0;
+    int indiceTexto = 0;
+    int ocorrencias = 0;
+
+    calcularArrayLPS(padrao, tamanhoPadrao, arrayLPS);
+
+    while (indiceTexto < tamanhoTexto) {
+        if (padrao[indicePadrao] == texto[indiceTexto]) {
+            indicePadrao++;
+            indiceTexto++;
+        }
+        if (indicePadrao == tamanhoPadrao) {
+            // Encontrou uma ocorrência
+            ocorrencias++;
+            indicePadrao = arrayLPS[indicePadrao - 1];
+        } else if (indiceTexto < tamanhoTexto && padrao[indicePadrao] != texto[indiceTexto]) {
+            if (indicePadrao != 0) {
+                indicePadrao = arrayLPS[indicePadrao - 1];
+            } else {
+                indiceTexto++;
+            }
+        }
+    }
+    free(arrayLPS);
+    return ocorrencias;
+}
+
+int main(void) {
     char frase[1501];
     char procura[32];
 
     fgets(frase, 1501, stdin);
     fgets(procura, 32, stdin);
 
-    int c = verifica(frase, procura);
-    if (c==0){
+    // Remova a quebra de linha das strings
+    frase[strcspn(frase, "\n")] = '\0';
+    procura[strcspn(procura, "\n")] = '\0';
+
+    int c = buscaPadraoKMP(frase, procura);
+    if (c == 0) {
         printf("Nenhuma ocorrencia encontrada\n");
+    } else {
+        printf("Numero de ocorrencias: %d\n", c);
     }
+    return 0;
 }
